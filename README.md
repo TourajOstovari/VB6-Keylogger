@@ -1,6 +1,6 @@
 # VB 6.0 - KEYLOGGER
 
-A simple VB 6.0 Key logger that i wrote in ~2008 for windows:
+A simple VB 6.0 Key logger that i wrote in ~2008 for windows XP:
 
 1.  Runs in background
 2.  Auto copy to local machine
